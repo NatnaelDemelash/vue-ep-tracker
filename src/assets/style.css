@@ -42,8 +42,8 @@ h4 {
 }
 
 .inc-exp-container {
-  background-color: #333;
-  color: #fff;
+  background-color: #fdf2e9;
+  color: #333;
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
@@ -115,9 +115,9 @@ input[type="number"] {
 }
 
 .list li {
-  background-color: #333;
+  background-color: #fdf2e9;
   box-shadow: var(--box-shadow);
-  color: #fff;
+  color: #111;
   display: flex;
   justify-content: space-between;
   position: relative;
