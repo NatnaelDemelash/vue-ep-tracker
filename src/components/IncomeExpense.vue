@@ -4,6 +4,9 @@ import {defineProps} from "vue"
 const props = defineProps({
   income: {
     type: Number
+  },
+  expenses:{
+    type: Number
   }
 })
 
@@ -17,7 +20,7 @@ const props = defineProps({
     </div>
     <div>
       <h4>Expense</h4>
-      <p id="money-minus" class="money minus">-$0.00</p>
+      <p id="money-minus" class="money minus">- ${{expenses }}</p>
     </div>
   </div>
 </template>

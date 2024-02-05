@@ -12,22 +12,37 @@ const transactions = ref([
     {id: 3, text: 'Book', amount: -13.32},
 ]);
 
+// Get total
 const total = computed(() => {
   return transactions.value.reduce((acc, transaction) => {
       return acc + transaction.amount;
   }, 0);
 })
 
+// Get Income
 const income = computed(() => {
-  return transactions.value.filter((trx) => trx.amount > 0)
+  return transactions.value.filter((transaction) => transaction.amount > 0)
+  .reduce((acc, transaction) => {
+    return  acc + transaction.amount
+  }, 0).toFixed(2);
 })
+
+// Get Expenses
+const expenses = computed(() => {
+  return transactions.value.filter((transaction) => transaction.amount < 0)
+  .reduce((acc, transaction) => {
+    return acc + transaction.amount
+  },0).toFixed(2);
+})
+
+
 </script>
 
 <template>
   <Header />
   <div class="container">
     <Balance :total="total"/>
-    <IncomeExpense :income= "income" />
+    <IncomeExpense :income= "income" :expenses="expenses"/>
     <TransactionHistory :transactions = "transactions"/>
     <AddTransaction />
   </div>
